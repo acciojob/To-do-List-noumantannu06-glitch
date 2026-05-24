@@ -1,28 +1,17 @@
-const newTodoInput = document.getElementById("newTodoInput");
-const addTodoBtn = document.getElementById("addTodoBtn");
+const input = document.getElementById("newTodoInput");
+const addBtn = document.getElementById("addTodoBtn");
 const todoList = document.getElementById("todoList");
 
-//  Function to add todo
-function addTodo() {
-  const todoText = newTodoInput.value.trim();
+addBtn.addEventListener("click", function () {
+  const value = input.value.trim();
 
-  if (todoText === "") return;
+  if (value === "") {
+    return;
+  }
 
   const li = document.createElement("li");
-  li.textContent = todoText;
-
+  li.textContent = value;
   todoList.appendChild(li);
 
-  //  Clear input
-  newTodoInput.value = "";
-}
-
-//  Click event
-addTodoBtn.addEventListener("click", addTodo);
-
-// Enter key support (important for Cypress sometimes)
-newTodoInput.addEventListener("keypress", function (e) {
-  if (e.key === "Enter") {
-    addTodo();
-  }
+  input.value = "";
 });
