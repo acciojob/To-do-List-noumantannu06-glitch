@@ -1,9 +1,9 @@
-const input = document.getElementById("newTodoInput");
+const newTodoInput = document.getElementById("newTodoInput");
 const addTodoBtn = document.getElementById("addTodoBtn");
 const todoList = document.getElementById("todoList");
 
 addTodoBtn.addEventListener("click", function () {
-  const todoText = input.value.trim();
+  const todoText = newTodoInput.value.trim();
 
   if (todoText === "") {
     return;
@@ -13,5 +13,5 @@ addTodoBtn.addEventListener("click", function () {
   li.textContent = todoText;
   todoList.appendChild(li);
 
-  input.value = "";
+  newTodoInput.value = "";
 });
